@@ -47,7 +47,8 @@
 
                         <div class="form-group text-center m-t-40">
                             <div class="col-12">
-                                <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</button>
+                                <a href="{{route('index')}}" class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</a>
+                                {{-- <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</button> --}}
                             </div>
                         </div>
 
