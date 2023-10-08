@@ -22,4 +22,14 @@ class UserController extends Controller
         return view("user.form_pendaftaran");
     }
 
+    public function ViewBerkas()
+    {
+        return view('user.pendaftaran');
+    }
+
+    public function ViewPengumuman()
+    {
+        return view("user.pengumuman");
+    }
+
 }

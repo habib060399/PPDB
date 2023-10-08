@@ -29,9 +29,15 @@
                     <div class="text-center m-t-20 m-b-30">
                             <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-dark.png" alt="" height="34"></a>
                     </div>
-                    <h4 class="text-muted text-center m-t-0"><b>Sign In</b></h4>
+                    <h4 class="text-muted text-center m-t-0"><b>Sign Up</b></h4>
 
                     <form class="form-horizontal m-t-20" action="index.html">
+
+                        <div class="form-group">
+                            <div class="col-12">
+                                <input class="form-control" type="email" required="" placeholder="Email">
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-12">
@@ -43,21 +49,17 @@
                             <div class="col-12">
                                 <input class="form-control" type="password" required="" placeholder="Password">
                             </div>
-                        </div>
+                        </div>            
 
                         <div class="form-group text-center m-t-40">
                             <div class="col-12">
-                                <a href="{{route('index')}}" class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</a>
-                                {{-- <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</button> --}}
+                                <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Register</button>
                             </div>
                         </div>
 
-                        <div class="form-group row m-t-30 m-b-0">
-                            <div class="col-sm-7">
-                               
-                            </div>
-                            <div class="col-sm-5 text-right">
-                                <a href="{{route('daftar')}}" class="text-muted">Create an account</a>
+                        <div class="form-group m-t-30 m-b-0">
+                            <div class="col-sm-12 text-center">
+                                <a href="{{route('login')}}" class="text-muted">Already have account?</a>
                             </div>
                         </div>
                     </form>

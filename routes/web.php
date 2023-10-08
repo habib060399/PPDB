@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -16,8 +17,16 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/daftar', [LoginController::class, 'viewRegister'])->name('daftar');
 
 
 Route::get('user', [UserController::class, 'index'])->name('index');
 Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');
 Route::get('user/daftar2', [UserController::class, 'ViewPendaftaran2'])->name('pendaftaran2');
+Route::get('user/berkas', [UserController::class, 'ViewBerkas'])->name('berkasUser');
+
+Route::get('user/pengumuman', [UserController::class, 'ViewPengumuman'])->name('pengumuman');
+
+Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('berkasPendaftaran');
+Route::get('admin/berkas', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');
+Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun');
