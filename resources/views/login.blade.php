@@ -35,13 +35,13 @@
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="text" required="" placeholder="Username">
+                                <input class="form-control" type="text" name="username" required="" placeholder="Username">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="password" required="" placeholder="Password">
+                                <input class="form-control" type="password" name="password" required="" placeholder="Password">
                             </div>
                         </div>
 
