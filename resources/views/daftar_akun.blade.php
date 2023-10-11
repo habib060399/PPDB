@@ -31,23 +31,24 @@
                     </div>
                     <h4 class="text-muted text-center m-t-0"><b>Sign Up</b></h4>
 
-                    <form class="form-horizontal m-t-20" action="index.html">
+                    <form class="form-horizontal m-t-20" action="{{route('regis')}}">
+                        @csrf
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="email" required="" placeholder="Email">
+                                <input class="form-control" type="text" name="name" required="" placeholder="Name">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="text" required="" placeholder="Username">
+                                <input class="form-control" type="text" name="username" required="" placeholder="Username">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="password" required="" placeholder="Password">
+                                <input class="form-control" type="password" name="password" required="" placeholder="Password">
                             </div>
                         </div>            
 
