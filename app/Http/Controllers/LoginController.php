@@ -23,12 +23,22 @@ class LoginController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
 
-        $getUser = User::where('username', $username)->get();
+        $getUser = User::where('username', $username)->first();
+        // dd($getUser);
+        if($getUser){
+            if($getUser->password == $password){
 
-        if($getUser->username == $username && $getUser->password == $password){
-            return true;
+                if($getUser->role == "1"){
+                    return redirect()->to("admin");
+                } else {
+                    return redirect()->to("user");
+                }
+                
+            } else {
+                return redirect('/')->with('status', 'Username dan Password salah');
+            }
         } else {
-            return false;
+            return redirect('/')->with('status', 'Username dan Password salah');
         }
 
     }
