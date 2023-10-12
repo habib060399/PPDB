@@ -24,7 +24,7 @@ class LoginController extends Controller
         $password = $request->input('password');
 
         $getUser = User::where('username', $username)->first();
-        // dd($getUser);
+        
         if($getUser){
             if($getUser->password == $password){
 
@@ -41,6 +41,26 @@ class LoginController extends Controller
             return redirect('/')->with('status', 'Username dan Password salah');
         }
 
+    }
+
+    public function daftarAkun(Request $request)
+    {
+        $username = $request->input('username');
+        $getUser = User::where('username', $username);
+
+        if($getUser->username == $username){
+            return redirect('/')->with('status', 'Username sudah ada');
+        }
+        
+        $user = User::create([
+            'nama' => $request->input("name"),
+            'username' => $username,
+            'password' => $request->input("password"),
+            'role' => "2"
+        ]);
+
+        $user->save();
+        return redirect('/')->with('status', 'Akun berhasil didaftarkan');
     }
 
 }
