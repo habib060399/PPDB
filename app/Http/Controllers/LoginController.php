@@ -54,21 +54,24 @@ class LoginController extends Controller
     public function daftarAkun(Request $request)
     {
         $username = $request->input('username');
-        $getUser = User::where('username', $username);
+       
+        $request->validate([
+            'username' => 'required|unique:users'
+        ]);
 
-        if($getUser->username == $username){
-            return redirect('/')->with('status', 'Username sudah ada');
-        }
-        
+        $messages = ['username.required' => 'username sudah ada'];
+
         $user = User::create([
-            'nama' => $request->input("name"),
-            'username' => $username,
-            'password' => $request->input("password"),
-            'role' => "2"
+            'nama' => $request->input('name'),
+            'username' => $request->input('username'),
+            'password' => $request->input('password'),
+            'role' => '2'
         ]);
 
         $user->save();
-        return redirect('/')->with('status', 'Akun berhasil didaftarkan');
+        return redirect('/')->with('status', 'akun berhasi di daftarkan');
+        
     }
+
 
 }

@@ -34,6 +34,9 @@
                     <form class="form-horizontal m-t-20" action="{{route('regis')}}">
                         @csrf
 
+                        @error('username')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <div class="form-group">
                             <div class="col-12">
                                 <input class="form-control" type="text" name="name" required="" placeholder="Name">
@@ -42,7 +45,7 @@
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="text" name="username" required="" placeholder="Username">
+                                <input class="form-control @error('username') is-invalid @enderror" type="text" name="username" required="" placeholder="Username">                               
                             </div>
                         </div>
 
