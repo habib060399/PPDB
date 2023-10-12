@@ -19,7 +19,7 @@ use App\Http\Controllers\LoginController;
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::get('/auth', [LoginController::class, 'auth'])->name('auth');
 Route::get('/daftar', [LoginController::class, 'viewRegister'])->name('daftar');
-Route::get('/daftar/regis', [LoginController::class, ''])->name('regis');
+Route::get('/daftar/regis', [LoginController::class, 'daftarAkun'])->name('regis');
 
 
 Route::get('user', [UserController::class, 'index'])->name('user');
