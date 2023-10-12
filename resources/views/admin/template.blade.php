@@ -39,7 +39,7 @@
                         <ul class="navigation-menu">
 
                             <li class="has-submenu">
-                                <a href="{{route('berkasPendaftaran')}}"><i class="ti-home"></i> Berkas Pendaftaran</a>
+                                <a href="{{route('admin')}}"><i class="ti-home"></i> Berkas Pendaftaran</a>
                             </li>
 
                             <li class="has-submenu">

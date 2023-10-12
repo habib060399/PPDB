@@ -17,16 +17,18 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/auth', [LoginController::class, 'auth'])->name('auth');
 Route::get('/daftar', [LoginController::class, 'viewRegister'])->name('daftar');
+Route::get('/daftar/regis', [LoginController::class, ''])->name('regis');
 
 
-Route::get('user', [UserController::class, 'index'])->name('index');
+Route::get('user', [UserController::class, 'index'])->name('user');
 Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');
 Route::get('user/daftar2', [UserController::class, 'ViewPendaftaran2'])->name('pendaftaran2');
 Route::get('user/berkas', [UserController::class, 'ViewBerkas'])->name('berkasUser');
 
 Route::get('user/pengumuman', [UserController::class, 'ViewPengumuman'])->name('pengumuman');
 
-Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('berkasPendaftaran');
+Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('admin');
 Route::get('admin/berkas', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');
 Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun');

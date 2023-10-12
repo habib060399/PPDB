@@ -31,8 +31,13 @@
                     </div>
                     <h4 class="text-muted text-center m-t-0"><b>Sign In</b></h4>
 
-                    <form class="form-horizontal m-t-20" action="index.html">
-
+                    <form class="form-horizontal m-t-20" action="{{route('auth')}}">
+                        @csrf
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                         <div class="form-group">
                             <div class="col-12">
                                 <input class="form-control" type="text" name="username" required="" placeholder="Username">
@@ -47,8 +52,8 @@
 
                         <div class="form-group text-center m-t-40">
                             <div class="col-12">
-                                <a href="{{route('index')}}" class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</a>
-                                {{-- <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</button> --}}
+                                {{-- <a href="{{route('index')}}" class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</a> --}}
+                                <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In</button>
                             </div>
                         </div>
 
