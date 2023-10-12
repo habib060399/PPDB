@@ -7,6 +7,14 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
+    // public $username;
+    // public $password;
+
+    // public function __construct($username, $password)
+    // {
+    //     $this->username = $username;
+    //     $this->password = $password;
+    // }
     
     public function index()
     {
