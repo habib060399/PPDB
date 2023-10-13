@@ -32,4 +32,19 @@ class UserController extends Controller
         return view("user.pengumuman");
     }
 
+    public function inputPendaftaran(Request $request)
+    {
+
+        
+
+        $request->input('nama_lengkap');
+        $request->input('nisn');
+        $request->input('ttl');
+        $request->input('alamat');
+        $request->input('jenkel');
+        $request->input('ank_ke');
+        $request->input('agama');
+
+    }
+
 }
