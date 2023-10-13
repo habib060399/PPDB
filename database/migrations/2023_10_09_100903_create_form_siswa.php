@@ -20,13 +20,13 @@ return new class extends Migration
             $table->string('jenkel');
             $table->string('anakke');
             $table->string('agama');
-            $table->string('asal_sekolah');
-            $table->string('negara');
-            $table->string('no_reg');
-            $table->string('nama_ortu');
-            $table->string('no_kk');
-            $table->string('no_hp_ortu');
-            $table->string('alamat_ortu');
+            $table->string('asal_sekolah')->nullable(true);
+            $table->string('negara')->nullable(true);
+            $table->string('no_reg')->nullable(true);
+            $table->string('nama_ortu')->nullable(true);
+            $table->string('no_kk')->nullable(true);
+            $table->string('no_hp_ortu')->nullable(true);
+            $table->string('alamat_ortu')->nullable(true);
         });
     }
 
