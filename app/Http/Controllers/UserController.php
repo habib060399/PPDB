@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Siswa;
 
 class UserController extends Controller
 {
@@ -35,15 +36,18 @@ class UserController extends Controller
     public function inputPendaftaran(Request $request)
     {
 
-        
+        $formDataSiswa = Siswa::create([
+            'nama_lengkap' => $request->input('nama_lengkap'),
+            'nisn' => $request->input('nisn'),
+            'ttl' => $request->input('ttl'),
+            'alamat' =>$request->input('alamat'),
+            'jenkel' => $request->input('jenkel'),
+            'anakke' => $request->input('ank_ke'),
+            'agama' => $request->input('agama')
+        ]);
+        dd($formDataSiswa);
+        // $formDataSiswa->save();
 
-        $request->input('nama_lengkap');
-        $request->input('nisn');
-        $request->input('ttl');
-        $request->input('alamat');
-        $request->input('jenkel');
-        $request->input('ank_ke');
-        $request->input('agama');
 
     }
 
