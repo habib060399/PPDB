@@ -24,6 +24,7 @@ Route::get('/daftar/regis', [LoginController::class, 'daftarAkun'])->name('regis
 
 Route::get('user', [UserController::class, 'index'])->name('user');
 Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');
+Route::get('user/daftar/input', [UserController::class, 'inputPendaftaran'])->name('inputDataSiswa');
 Route::get('user/daftar2', [UserController::class, 'ViewPendaftaran2'])->name('pendaftaran2');
 Route::get('user/berkas', [UserController::class, 'ViewBerkas'])->name('berkasUser');
 
