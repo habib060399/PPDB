@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    
+
     public function ViewBerkas()
     {
         return view('admin.index');
@@ -21,5 +21,4 @@ class AdminController extends Controller
     {
         return view('admin.daftar_akun');
     }
-
 }

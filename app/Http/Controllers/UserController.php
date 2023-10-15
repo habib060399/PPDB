@@ -45,10 +45,19 @@ class UserController extends Controller
             'anakke' => $request->input('ank_ke'),
             'agama' => $request->input('agama')
         ]);
-        dd($formDataSiswa);
-        // $formDataSiswa->save();
+        
+        $formDataSiswa->save();
+        if($formDataSiswa){
+            return redirect('user/daftar2');
+        }else{
+            return redirect('user/daftar');
+        }
 
+    }
 
+    public function inputPendaftaran2()
+    {
+        
     }
 
 }

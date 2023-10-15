@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('form_siswa', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_lengkap');
-            $table->string('nisn');
-            $table->string('ttl');
-            $table->string('alamat');
-            $table->string('jenkel');
-            $table->string('anakke');
-            $table->string('agama');
+            $table->string('nama_lengkap')->nullable(true);
+            $table->string('nisn')->nullable(true);
+            $table->string('ttl')->nullable(true);
+            $table->string('alamat')->nullable(true);
+            $table->string('jenkel')->nullable(true);
+            $table->string('anakke')->nullable(true);
+            $table->string('agama')->nullable(true);
             $table->string('asal_sekolah')->nullable(true);
             $table->string('negara')->nullable(true);
             $table->string('no_reg')->nullable(true);
