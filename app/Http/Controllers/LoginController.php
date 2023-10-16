@@ -37,8 +37,14 @@ class LoginController extends Controller
             if($getUser->password == $password){
 
                 if($getUser->role == "1"){
+                    $request->session()->put('username', $getUser->username);
+                    $request->session()->put('nama', $getUser->nama);
+
                     return redirect()->to("admin");
                 } else {
+                    $request->session()->put('username', $getUser->username);
+                    $request->session()->put('nama', $getUser->nama);
+                    
                     return redirect()->to("user");
                 }
                 

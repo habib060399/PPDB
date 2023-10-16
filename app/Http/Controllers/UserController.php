@@ -57,7 +57,24 @@ class UserController extends Controller
 
     public function inputPendaftaran2()
     {
+
+        $formDataSiswa2 = Siswa::create([
+            'asal_sekolah' => $request->input('asal_sekolah'),
+            'negara' => $request->input('warganegara'),
+            'no_reg' => $request->input('no_reg_akta'),
+            'nama_ortu' => $request->input('nama_ortu'),
+            'no_kk' => $request->input('no_kk'),
+            'no_hp_ortu' => $request->input('no_hp'),
+            'alamat_ortu' => $request->input('alamat_ortu')
+        ]);
         
+        $formDataSiswa2->save();
+        if($formDataSiswa2){
+            return redirect('user/pengumuman');
+        }else{
+            return redirect('user/daftar2');
+        }
+                            
     }
 
 }
