@@ -22,7 +22,7 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu">                        
-                        <li><a href="javascript:void(0)" class="dropdown-item"> Logout</a></li>
+                        <li><a href="{{route('out')}}" class="dropdown-item"> Logout</a></li>
                     </ul>
                 </li>
 
