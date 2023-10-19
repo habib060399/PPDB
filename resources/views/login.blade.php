@@ -31,7 +31,7 @@
                     </div>
                     <h4 class="text-muted text-center m-t-0"><b>Sign In</b></h4>
 
-                    <form class="form-horizontal m-t-20" action="{{route('auth')}}">
+                    <form class="form-horizontal m-t-20" action="{{route('auth')}}" method="POST">
                         @csrf
                         @if (session('status'))
                             <div class="alert alert-success">
