@@ -16,8 +16,9 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', [LoginController::class, 'index'])->name('login');
-Route::get('/auth', [LoginController::class, 'auth'])->name('auth');
+Route::get('/', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/auth', [LoginController::class, 'auth'])->name('auth');
+Route::post('/logout', [LoginController::class, 'logout'])->name('out');
 Route::get('/daftar', [LoginController::class, 'viewRegister'])->name('daftar');
 Route::get('/daftar/regis', [LoginController::class, 'daftarAkun'])->name('regis');
 
