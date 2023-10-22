@@ -21,8 +21,13 @@
                                                     Kenny <span class="mdi mdi-chevron-down font-15"></span>
                         </span>
                     </a>
-                    <ul class="dropdown-menu">                        
-                        <li><a href="{{route('out')}}" class="dropdown-item"> Logout</a></li>
+                    <ul class="dropdown-menu">                                                
+                        <li>
+                            <form action="{{route('out')}}" method="post">
+                                @csrf                            
+                            <button class="dropdown-item" type="submit"> Logout</button>
+                            </form>
+                        </li>                        
                     </ul>
                 </li>
 
