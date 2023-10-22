@@ -27,7 +27,7 @@ class LoginController extends Controller
         return view('daftar_akun');
     }
 
-    public function auth(Request $request)
+    public function login(Request $request)
     {
 
         $credentials = $request->validate([
@@ -40,19 +40,19 @@ class LoginController extends Controller
 
         $getUser = User::where('username', $username)->first();
         
-        if(Auth::attempt($credentials) || $getUser){
+        if($getUser){
             if($getUser->password == $password){
                 $request->session()->regenerate();
                 if($getUser->role == "1"){
                     $request->session()->put('username', $getUser->username);
                     $request->session()->put('nama', $getUser->nama);
 
-                    return redirect()->intended("admin");
+                    return redirect('/admin');
                 } else {
                     $request->session()->put('username', $getUser->username);
                     $request->session()->put('nama', $getUser->nama);
                     
-                    return redirect()->intended("user");
+                    return redirect('/user');
                 }
                 
             } else {
@@ -82,7 +82,7 @@ class LoginController extends Controller
         ]);
 
         $user->save();
-        return redirect('/')->with('status', 'akun berhasi di daftarkan');
+        return redirect('/')->with('status', 'akun berhasil di daftarkan');
         
     }
 
