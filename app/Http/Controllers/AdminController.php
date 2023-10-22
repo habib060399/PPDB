@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function  __construct(Request $request)
+    {
+        $username = $request->session()->get('username');
+        if(!$request->session()->has('username')){
+            Controller::to();
+        }
+    }
 
     public function ViewBerkas()
     {
