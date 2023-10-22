@@ -3,10 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use Illuminate\Http\Redirect;
 use App\Models\Siswa;
 
 class UserController extends Controller
 {
+
+    public function  __construct(Request $request)
+    {
+        $username = $request->session()->get('username');
+        if(!$request->session()->has('username')){
+            Controller::to();
+        }
+    }
     
     public function index()
     {
