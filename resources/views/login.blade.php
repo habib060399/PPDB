@@ -31,7 +31,7 @@
                     </div>
                     <h4 class="text-muted text-center m-t-0"><b>Sign In</b></h4>
 
-                    <form class="form-horizontal m-t-20" action="{{route('auth')}}" method="POST">
+                    <form class="form-horizontal m-t-20" action="{{url('/login')}}" method="POST">
                         @csrf
                         @if (session('status'))
                             <div class="alert alert-success">
@@ -40,13 +40,13 @@
                         @endif
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="text" name="username" required="" placeholder="Username">
+                                <input class="form-control" type="text" name="username" placeholder="Username">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-12">
-                                <input class="form-control" type="password" name="password" required="" placeholder="Password">
+                                <input class="form-control" type="password" name="password" placeholder="Password">
                             </div>
                         </div>
 
