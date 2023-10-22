@@ -16,14 +16,14 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', [LoginController::class, 'index'])->middleware('guest')->name('login');
-Route::post('/auth', [LoginController::class, 'auth'])->name('auth');
+Route::get('/', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('out');
-Route::get('/daftar', [LoginController::class, 'viewRegister'])->name('daftar');
+Route::get('/daftar', [LoginController::class, 'viewRegister'])->middleware('guest')->name('daftar');
 Route::get('/daftar/regis', [LoginController::class, 'daftarAkun'])->name('regis');
 
 
-Route::get('user', [UserController::class, 'index'])->name('user');
+Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');
 Route::get('user/daftar/input', [UserController::class, 'inputPendaftaran'])->name('inputDataSiswa');
 Route::get('user/daftar2', [UserController::class, 'ViewPendaftaran2'])->name('pendaftaran2');
