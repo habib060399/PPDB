@@ -24,9 +24,13 @@ Route::get('/daftar/regis', [LoginController::class, 'daftarAkun'])->name('regis
 
 
 Route::get('/user', [UserController::class, 'index'])->name('user');
+
 Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');
-Route::get('user/daftar/input', [UserController::class, 'inputPendaftaran'])->name('inputDataSiswa');
+Route::post('user/daftar/input', [UserController::class, 'inputPendaftaran'])->name('inputDataSiswa');
+
 Route::get('user/daftar2', [UserController::class, 'ViewPendaftaran2'])->name('pendaftaran2');
+Route::post('user/daftar2/input', [UserController::class, 'inputPendaftaran2'])->name('inputDataSiswa2');
+
 Route::get('user/berkas', [UserController::class, 'ViewBerkas'])->name('berkasUser');
 
 Route::get('user/pengumuman', [UserController::class, 'ViewPengumuman'])->name('pengumuman');
@@ -35,7 +39,7 @@ Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('admin');
 Route::get('admin/berkas', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');
 Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun');
 
-Route::middleware(['web'])->group(function () {
-    Route::get('/user', [UserController::class, 'index'])->name('user');
-    Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');
-});
+// Route::middleware(['web'])->group(function () {
+//     Route::get('/user', [UserController::class, 'index'])->name('user');
+//     Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');
+// });
