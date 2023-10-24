@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('form_siswa', function (Blueprint $table) {
             $table->id();
+            $table->string('id_user')->nullable(true);
             $table->string('nama_lengkap')->nullable(true);
             $table->string('nisn')->nullable(true);
             $table->string('ttl')->nullable(true);

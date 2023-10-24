@@ -41,15 +41,16 @@ class LoginController extends Controller
         $getUser = User::where('username', $username)->first();
         
         if($getUser){
-            if($getUser->password == $password){
-                $request->session()->regenerate();
+            if($getUser->password == $password){                
                 if($getUser->role == "1"){
                     $request->session()->put('username', $getUser->username);
+                    $request->session()->put('id_user', $getUser->id);
                     $request->session()->put('nama', $getUser->nama);
 
                     return redirect('/admin');
                 } else {
                     $request->session()->put('username', $getUser->username);
+                    $request->session()->put('id_user', $getUser->id);
                     $request->session()->put('nama', $getUser->nama);
                     
                     return redirect('/user');
@@ -88,7 +89,6 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();

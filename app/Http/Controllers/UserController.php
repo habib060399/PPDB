@@ -3,19 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Http\Redirect;
 use App\Models\Siswa;
 
 class UserController extends Controller
 {
 
-    public function  __construct(Request $request)
-    {
-        $username = $request->session()->get('username');
-        if(!$request->session()->has('username')){
-            Controller::to();
-        }
-    }
+    // public function  __construct(Request $request)
+    // {        
+    //     if(!$request->session()->has('username')){
+    //         dd('berhasil');
+    //     }
+    // }
     
     public function index()
     {
@@ -42,10 +40,19 @@ class UserController extends Controller
         return view("user.pengumuman");
     }
 
+    public function idUser(Request $request)
+    {        
+        $id_user = $request->session()->get('id_user');
+        return $id_user;        
+    }
+
     public function inputPendaftaran(Request $request)
     {
 
+        $id_user = $request->session()->get('id_user');
+
         $formDataSiswa = Siswa::create([
+            'id_user' => $id_user,
             'nama_lengkap' => $request->input('nama_lengkap'),
             'nisn' => $request->input('nisn'),
             'ttl' => $request->input('ttl'),
@@ -54,10 +61,10 @@ class UserController extends Controller
             'anakke' => $request->input('ank_ke'),
             'agama' => $request->input('agama')
         ]);
-        
+                
         $formDataSiswa->save();
         if($formDataSiswa){
-            return redirect('user/daftar2');
+            return redirect('user/daftar2')->with('status', 'Data berhasil didaftarkan');
         }else{
             return redirect('user/daftar');
         }

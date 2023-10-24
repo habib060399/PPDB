@@ -16,7 +16,7 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('out');
 Route::get('/daftar', [LoginController::class, 'viewRegister'])->middleware('guest')->name('daftar');
@@ -34,3 +34,8 @@ Route::get('user/pengumuman', [UserController::class, 'ViewPengumuman'])->name('
 Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('admin');
 Route::get('admin/berkas', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');
 Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun');
+
+Route::middleware(['web'])->group(function () {
+    Route::get('/user', [UserController::class, 'index'])->name('user');
+    Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');
+});
