@@ -71,10 +71,12 @@ class UserController extends Controller
 
     }
 
-    public function inputPendaftaran2()
+    public function inputPendaftaran2(Request $request)
     {
+        $id_user = $request->session()->get('id_user');
 
-        $formDataSiswa2 = Siswa::create([
+        Siswa::where('id_user', $id_user)
+        ->update([
             'asal_sekolah' => $request->input('asal_sekolah'),
             'negara' => $request->input('warganegara'),
             'no_reg' => $request->input('no_reg_akta'),
@@ -83,13 +85,9 @@ class UserController extends Controller
             'no_hp_ortu' => $request->input('no_hp'),
             'alamat_ortu' => $request->input('alamat_ortu')
         ]);
+                
         
-        $formDataSiswa2->save();
-        if($formDataSiswa2){
-            return redirect('user/pengumuman');
-        }else{
-            return redirect('user/daftar2');
-        }
+        return redirect('user/pengumuman')->with('status', 'Data berhasil ditambahkan');        
                             
     }
 
