@@ -36,7 +36,7 @@ Route::get('user/berkas', [UserController::class, 'ViewBerkas'])->name('berkasUs
 Route::get('user/pengumuman', [UserController::class, 'ViewPengumuman'])->name('pengumuman');
 
 Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('admin');
-Route::get('admin/berkas', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');
+Route::get('admin/berkas/{id}', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');
 Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun');
 
 // Route::middleware(['web'])->group(function () {
