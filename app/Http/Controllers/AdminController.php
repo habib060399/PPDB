@@ -27,10 +27,10 @@ class AdminController extends Controller
 
     public function ViewBerkasPendaftaran($id_user)
     {
-        $berkas = Siswa::where('id_user', $id_user)->first();
+        $getDataSiswa = Siswa::where('id_user', $id_user)->first();
 
         $data = [
-            'berkas' => $berkas
+            'berkas' => $getDataSiswa
         ];
         return view('admin.berkas_pendaftaran', $data);
     }

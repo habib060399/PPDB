@@ -28,23 +28,23 @@
                                             <h4 class="modal-title m-0">Pemberitahuan</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="form-group row">
+                                            {{-- <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="example-text-input">Nama
                                                     Lengkap</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="example-text-input"
-                                                        value="{{ $user->nama_lengkap }}" readonly>
+                                                        readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="example-text-input">Nisn</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="example-text-input"
-                                                        value="{{ $user->nisn }}" readonly>
+                                                        readonly>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <br>
-                                            <h4 class="modal-title m-0">Dengan ini dinyatakan <h1>{{ $user->status }}</h1>
+                                            <h4 class="modal-title m-0">Selamat Anda Telah Berhasil Daftar
                                             </h4>
                                         </div>
 

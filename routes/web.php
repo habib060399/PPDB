@@ -41,5 +41,5 @@ Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun
 
 // Route::middleware(['web'])->group(function () {
 //     Route::get('/user', [UserController::class, 'index'])->name('user');
-//     Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');
+//     Route::get('user/daftar', [UserController::class, 'ViewPendaftaran'])->name('pendaftaran');    
 // });
