@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('no_kk')->nullable(true);
             $table->string('no_hp_ortu')->nullable(true);
             $table->string('alamat_ortu')->nullable(true);
+            $table->string('status')->nullable(true);
         });
     }
 
