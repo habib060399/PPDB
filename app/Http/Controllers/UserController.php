@@ -83,7 +83,8 @@ class UserController extends Controller
             'nama_ortu' => $request->input('nama_ortu'),
             'no_kk' => $request->input('no_kk'),
             'no_hp_ortu' => $request->input('no_hp'),
-            'alamat_ortu' => $request->input('alamat_ortu')
+            'alamat_ortu' => $request->input('alamat_ortu'),
+            'status' => "1"
         ]);
                 
         
