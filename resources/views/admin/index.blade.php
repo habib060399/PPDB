@@ -37,16 +37,18 @@
 
                             <tbody>
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
+                                @foreach ($daftarBerkas as $berkas)                                                                    
+                                <td>{{$berkas->nama_lengkap}}</td>
+                                <td>{{$berkas->nisn}}</td>
+                                <td>{{$berkas->asal_sekolah}}</td>
+                                <td>{{$berkas->alamat}}</td>
+                                <td>{{$berkas->no_hp_ortu}}</td>
                                 <td>
-                                    <a href="{{route('berkas')}}" class="btn btn-secondary btn-xs waves-effect">Lihat</a>
+                                    <a href="{{route('berkas',['id' => $berkas->id_user])}}" class="btn btn-secondary btn-xs waves-effect">Lihat</a>
                                     <a href="" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</a>
                                     <a href="" class="btn btn-secondary btn-xs waves-effect">Hapus</a>
                                 </td>
+                                @endforeach
                             </tr>
                             
                             </tbody>
