@@ -26,7 +26,8 @@ class Siswa extends Model
         'nama_ortu',
         'no_kk',
         'no_hp_ortu',
-        'alamat_ortu'
+        'alamat_ortu',
+        'status'
     ];
 
     public $timestamps = false;
