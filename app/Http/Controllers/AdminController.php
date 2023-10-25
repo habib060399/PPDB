@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Siswa;
 
 class AdminController extends Controller
 {
@@ -16,12 +17,22 @@ class AdminController extends Controller
 
     public function ViewBerkas()
     {
-        return view('admin.index');
+        $daftarBerkas = Siswa::all();
+
+        $data = [
+            'daftarBerkas' => $daftarBerkas
+        ];
+        return view('admin.index', $data);
     }
 
-    public function ViewBerkasPendaftaran()
+    public function ViewBerkasPendaftaran($id_user)
     {
-        return view('admin.berkas_pendaftaran');
+        $berkas = Siswa::where('id_user', $id_user)->first();
+
+        $data = [
+            'berkas' => $berkas
+        ];
+        return view('admin.berkas_pendaftaran', $data);
     }
 
     public function ViewDaftarAkun()
