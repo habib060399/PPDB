@@ -29,6 +29,7 @@
                                 <th>Nisn</th>
                                 <th>Asal Sekolah</th>
                                 <th>Alamat</th>
+                                <th>Status</th>
                                 <th>No Hp orang tua</th>
                                 <th>Aksi</th>
                             </tr>
@@ -42,6 +43,7 @@
                                 <td>{{$berkas->nisn}}</td>
                                 <td>{{$berkas->asal_sekolah}}</td>
                                 <td>{{$berkas->alamat}}</td>
+                                <td>{{$berkas->status}}</td>
                                 <td>{{$berkas->no_hp_ortu}}</td>
                                 <td>
                                     <a href="{{route('berkas',['id' => $berkas->id_user])}}" class="btn btn-secondary btn-xs waves-effect">Lihat</a>
@@ -71,8 +73,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <button type="button" class="btn btn-success waves-effect">Lulus</button>
-                <button type="button" class="btn btn-danger waves-effect">Tidak Lulus</button>
+                <a href="{{route('confirm', ['id' => $berkas->id_user, 'status' => '1'])}}" class="btn btn-success waves-effect">Lulus</a>
+                <a href="{{route('confirm', ['id' => $berkas->id_user, 'status' => '2' ])}}" class="btn btn-danger waves-effect">Tidak Lulus</a>
+                {{-- <button type="button" class="btn btn-success waves-effect">Lulus</button>
+                <button type="button" class="btn btn-danger waves-effect">Tidak Lulus</button> --}}
             </div>
             <div class="modal-footer">
                 {{-- <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
