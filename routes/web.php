@@ -38,6 +38,7 @@ Route::get('user/pengumuman', [UserController::class, 'ViewPengumuman'])->name('
 Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('admin');
 Route::get('admin/berkas/{id}', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');
 Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun');
+Route::get('admin/confirm/{id}/{status}', [AdminController::class, 'confirm'])->name('confirm');
 
 // Route::middleware(['web'])->group(function () {
 //     Route::get('/user', [UserController::class, 'index'])->name('user');
