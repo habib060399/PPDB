@@ -108,8 +108,8 @@
                 </br>
                     <div class="form-group row">
                         <div class="offset-sm-10 col-sm-5">
-                            <button type="submit" class="btn btn-success waves-effect waves-light">Lulus</button>
-                            <button type="submit" class="btn btn-danger waves-effect waves-light">Tidak Lulus</button>
+                            <a href="{{route('confirm', ['id' => $berkas->id_user, 'status' => '1'])}}" class="btn btn-success waves-effect waves-light">Lulus</a>
+                            <a href="{{route('confirm', ['id' => $berkas->id_user, 'status' => '2' ])}}" class="btn btn-danger waves-effect waves-light">Tidak Lulus</a>
                         </div>
                     </div> 
                 </form>
