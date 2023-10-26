@@ -7,13 +7,11 @@ use App\Models\Siswa;
 
 class AdminController extends Controller
 {
-    // public function  __construct(Request $request)
-    // {
-    //     $username = $request->session()->get('username');
-    //     if(!$request->session()->has('username')){
-    //         Controller::to();
-    //     }
-    // }
+    public $id_user;
+    public function  __construct()
+    {        
+        $this->id_user = session('id_user');        
+    }
 
     public function ViewBerkas()
     {
@@ -38,5 +36,27 @@ class AdminController extends Controller
     public function ViewDaftarAkun()
     {
         return view('admin.daftar_akun');
+    }
+
+    public function confirm($id, $status)
+    {
+        if($status == '1'){
+
+            $status = 'LULUS';
+            Siswa::where('id_user', $id)->update([
+                'status' => $status
+            ]);
+            return redirect()->to('admin');
+
+        } elseif($status == '2'){
+
+            $status = 'TIDAK LULUS';
+            Siswa::where('id_user', $id)->update([
+                'status' => $status
+            ]);
+            return redirect()->to('admin');
+            
+        }
+        
     }
 }
