@@ -37,8 +37,8 @@
 
 
                             <tbody>
-                            <tr>
                                 @foreach ($daftarBerkas as $berkas)                                                                    
+                            <tr>
                                 <td>{{$berkas->nama_lengkap}}</td>
                                 <td>{{$berkas->nisn}}</td>
                                 <td>{{$berkas->asal_sekolah}}</td>
@@ -47,11 +47,11 @@
                                 <td>{{$berkas->no_hp_ortu}}</td>
                                 <td>
                                     <a href="{{route('berkas',['id' => $berkas->id_user])}}" class="btn btn-secondary btn-xs waves-effect">Lihat</a>
-                                    <a href="" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</a>
+                                    <a href="" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal{{$berkas->id_user}}">Edit</a>
                                     <a href="" class="btn btn-secondary btn-xs waves-effect">Hapus</a>
                                 </td>
-                                @endforeach
                             </tr>
+                            @endforeach
                             
                             </tbody>
                         </table>
@@ -65,7 +65,18 @@
 </div> <!-- End Row -->
 
  <!-- sample modal content -->
- <div id="custom-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true">
+ @php
+  $berkas;
+    if (empty($berkas)) 
+        // $berkas = null;
+        
+        $berkas = 2;
+        else {
+            $berkas = $berkas->id_user;
+        }
+            
+ @endphp
+ <div id="custom-width-modal{{$berkas}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -73,8 +84,8 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <a href="{{route('confirm', ['id' => $berkas->id_user, 'status' => '1'])}}" class="btn btn-success waves-effect">Lulus</a>
-                <a href="{{route('confirm', ['id' => $berkas->id_user, 'status' => '2' ])}}" class="btn btn-danger waves-effect">Tidak Lulus</a>
+                <a href="{{route('confirm', ['id' => $berkas, 'status' => '1'])}}" class="btn btn-success waves-effect">Lulus</a>
+                <a href="{{route('confirm', ['id' => $berkas, 'status' => '2' ])}}" class="btn btn-danger waves-effect">Tidak Lulus</a>
                 {{-- <button type="button" class="btn btn-success waves-effect">Lulus</button>
                 <button type="button" class="btn btn-danger waves-effect">Tidak Lulus</button> --}}
             </div>

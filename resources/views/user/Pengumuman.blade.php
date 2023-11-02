@@ -44,7 +44,7 @@
                                                 </div>
                                             </div>
                                             <br>
-                                            <h4 class="modal-title m-0">Dengan ini dinyatakan <h1>{{ $user->status }}</h1>
+                                            <h4 class="modal-title m-0">{{$status}}</h1>
                                             </h4>
                                         </div>
 

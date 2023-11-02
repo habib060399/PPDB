@@ -15,8 +15,8 @@ class AdminController extends Controller
 
     public function ViewBerkas()
     {
-        $daftarBerkas = Siswa::all();
-
+        $daftarBerkas = Siswa::get();
+        
         $data = [
             'daftarBerkas' => $daftarBerkas
         ];
