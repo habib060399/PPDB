@@ -59,4 +59,11 @@ class AdminController extends Controller
         }
         
     }
+
+    public function hapus($id)
+    {
+        Siswa::where('id_user', $id)->delete();
+
+        return redirect('/admin')->with('status', 'Data Berhasil Dihapus');
+    }
 }
