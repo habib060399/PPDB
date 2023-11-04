@@ -21,6 +21,11 @@
             <div class="card-body">
                 <h4 class="m-b-30 m-t-0">Default Example</h4>
                 <div class="row">
+                    @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                     <div class="col-lg-12 col-sm-12 col-12">
                         <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; width: 100%;">
                             <thead>
@@ -47,8 +52,8 @@
                                 <td>{{$berkas->no_hp_ortu}}</td>
                                 <td>
                                     <a href="{{route('berkas',['id' => $berkas->id_user])}}" class="btn btn-secondary btn-xs waves-effect">Lihat</a>
-                                    <a href="" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal{{$berkas->id_user}}">Edit</a>
-                                    <a href="" class="btn btn-secondary btn-xs waves-effect">Hapus</a>
+                                    <a href="" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</a>
+                                    <a href="{{route('hapus', ['id' => $berkas->id_user])}}" class="btn btn-secondary btn-xs waves-effect">Hapus</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -70,13 +75,13 @@
     if (empty($berkas)) 
         // $berkas = null;
         
-        $berkas = 2;
+        $berkas = 0;
         else {
             $berkas = $berkas->id_user;
         }
             
  @endphp
- <div id="custom-width-modal{{$berkas}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true">
+ <div id="custom-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -85,14 +90,9 @@
             </div>
             <div class="modal-body">
                 <a href="{{route('confirm', ['id' => $berkas, 'status' => '1'])}}" class="btn btn-success waves-effect">Lulus</a>
-                <a href="{{route('confirm', ['id' => $berkas, 'status' => '2' ])}}" class="btn btn-danger waves-effect">Tidak Lulus</a>
-                {{-- <button type="button" class="btn btn-success waves-effect">Lulus</button>
-                <button type="button" class="btn btn-danger waves-effect">Tidak Lulus</button> --}}
+                <a href="{{route('confirm', ['id' => $berkas, 'status' => '2' ])}}" class="btn btn-danger waves-effect">Tidak Lulus</a>                
             </div>
-            <div class="modal-footer">
-                {{-- <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
-            </div> --}}
+            <div class="modal-footer">                
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
