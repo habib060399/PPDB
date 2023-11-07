@@ -52,7 +52,7 @@
                                 <td>{{$berkas->no_hp_ortu}}</td>
                                 <td>
                                     <a href="{{route('berkas',['id' => $berkas->id_user])}}" class="btn btn-secondary btn-xs waves-effect">Lihat</a>
-                                    <a href="" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</a>
+                                    <button onclick="edit({{$berkas->id_user}})" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</button>
                                     <a href="{{route('hapus', ['id' => $berkas->id_user])}}" class="btn btn-secondary btn-xs waves-effect">Hapus</a>
                                 </td>
                             </tr>
@@ -89,12 +89,27 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <a href="{{route('confirm', ['id' => $berkas, 'status' => '1'])}}" class="btn btn-success waves-effect">Lulus</a>
-                <a href="{{route('confirm', ['id' => $berkas, 'status' => '2' ])}}" class="btn btn-danger waves-effect">Tidak Lulus</a>                
+                <a id="lulus" href="" class="btn btn-success waves-effect">Lulus</a>
+                <a id="tidak_lulus" href="" class="btn btn-danger waves-effect">Tidak Lulus</a>                
             </div>
             <div class="modal-footer">                
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-    
+    <script>
+        var id;
+
+        function edit(id_user) {
+            var uri1 = "";
+            var uri2 = "";
+            var url = uri1+id_user+uri2;
+            var a = document.getElementById('lulus');            
+            var a2 = document.getElementById('tidak_lulus');            
+            a.href = `{{route('confirm', ['id' =>${id_user}, 'status' => '1'])}}`;
+            a2.href = "{{route('confirm', ['id' => "+ id_user +", 'status' => '2'])}}";
+            console.log(id);
+        }
+        
+
+    </script>
 @endsection
