@@ -19,6 +19,10 @@
     <link href="{{url('assets/css/icons.css')}}" rel="stylesheet" type="text/css">
     <link href="{{url('assets/css/style.css')}}" rel="stylesheet" type="text/css">
 
+    <script>
+        var urlEditBerkas = `{{url('admin/confirm/')}}`
+        console.log(urlEditBerkas);
+    </script>
 </head>
 
 <body>
