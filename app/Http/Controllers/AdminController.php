@@ -79,4 +79,12 @@ class AdminController extends Controller
 
         return redirect('/admin/akun')->with('status', 'Data Berhasil Dihapus');
     }
+
+    public function editAKun($id)
+    {
+        $username = 
+        User::where('id', $id)->update([
+            'username',
+        ]);
+    }
 }
