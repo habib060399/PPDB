@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -35,7 +36,12 @@ class AdminController extends Controller
 
     public function ViewDaftarAkun()
     {
-        return view('admin.daftar_akun');
+        $getAkun = User::where('role', '2')->get();
+        
+        $data = [
+            'akun' => $getAkun
+        ];
+        return view('admin.daftar_akun', $data);
     }
 
     public function confirm($id, $status)
@@ -65,5 +71,12 @@ class AdminController extends Controller
         Siswa::where('id_user', $id)->delete();
 
         return redirect('/admin')->with('status', 'Data Berhasil Dihapus');
+    }
+
+    public function hapusAkun($id)
+    {
+        User::where('id', $id)->delete();
+
+        return redirect('/admin/akun')->with('status', 'Data Berhasil Dihapus');
     }
 }
