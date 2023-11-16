@@ -40,3 +40,4 @@ Route::get('admin/berkas/{id}', [AdminController::class, 'ViewBerkasPendaftaran'
 Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun');
 Route::get('admin/confirm/{id}/{status}', [AdminController::class, 'confirm'])->name('confirm');
 Route::get('admin/hapus/{id}', [AdminController::class, 'hapus'])->name('hapus');
+Route::get('admin/hapus/akun/{id}', [AdminController::class, 'hapusAkun'])->name('hapusAkun');
