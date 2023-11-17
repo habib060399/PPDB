@@ -53,17 +53,30 @@ class UserController extends Controller
     }
 
     public function ViewPengumuman()
-    {        
+    {   $status ="Anda Belum Mendaftar";
+        $nama="";
+        $nisn="";
+
         $getDataSiswa = Siswa::where('id_user', $this->id_user)->first();
-        if($getDataSiswa->status == "LULUS") {
-            $status = "Dengan ini dinyatakan <h1>$getDataSiswa->status</h1>";
-        }elseif($getDataSiswa->status == "TIDAK LULUS") {
-            $status = "Dengan ini dinyatakan <h1>$getDataSiswa->status</h1>";
-        }else {
-            $status = "Sedang di proses, harap tunggu";
+        if($getDataSiswa){
+            if($getDataSiswa->status == "LULUS") {
+                $nama = $getDataSiswa->nama_lengkap;
+                $nisn = $getDataSiswa->nisn;
+                $status = "Dengan ini dinyatakan <h1>$getDataSiswa->status</h1>";
+            }elseif($getDataSiswa->status == "TIDAK LULUS") {
+                $nama = $getDataSiswa->nama_lengkap;
+                $nisn = $getDataSiswa->nisn;
+                $status = "Dengan ini dinyatakan <h1>$getDataSiswa->status</h1>";
+            }else{
+                $nama = $getDataSiswa->nama_lengkap;
+                $nisn = $getDataSiswa->nisn;
+                $status = "Sedang di proses, harap tunggu";
+            }            
         }
+        
         $data = [
-            'user' => $getDataSiswa,
+            'nama' => $nama,
+            'nisn' => $nisn,
             'status' => $status
         ];
         return view("user.pengumuman", $data);
