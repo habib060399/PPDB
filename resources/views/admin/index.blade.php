@@ -105,9 +105,10 @@
             var url = uri1+id_user+uri2;
             var a = document.getElementById('lulus');            
             var a2 = document.getElementById('tidak_lulus');            
-            a.href = `{{route('confirm', ['id' =>${id_user}, 'status' => '1'])}}`;
-            a2.href = "{{route('confirm', ['id' => "+ id_user +", 'status' => '2'])}}";
-            console.log(id);
+            
+            // a2.href = "{{route('confirm', ['id' => "+ id_user +", 'status' => '2'])}}";
+            a.href = `{{route('confirm', ['id'=>`+`id_user`+`, 'status' => '1'])}}`;
+            console.log(`Ini id:${id_user}`);
         }
         
 
