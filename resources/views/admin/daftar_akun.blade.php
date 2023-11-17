@@ -38,7 +38,7 @@
                                 <td>{{$akun->username}}</td>
                                 <td>{{$akun->nama}}</td>                                
                                 <td>
-                                    <a href="{{route('editAkun', ['id' => $akun->id])}}" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</a>                                    
+                                    <button onclick="editAkun({{$akun->id}})" id="edit" data-username="{{$akun->username}}" data-nama="{{$akun->nama}}" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</button>                                    
                                     <a href="{{route('hapusAkun', ['id' => $akun->id])}}" class="btn btn-secondary btn-xs waves-effect">Hapus</a>
                                 </td>
                             </tr>
@@ -63,26 +63,43 @@
                 <h4 class="modal-title m-0" id="custom-width-modalLabel">Edit</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
+            <form action="{{route('editAkun')}}" method="POST">
             <div class="modal-body">
                 <div class="form-group row">
                     <label class="col-sm-2 control-label" for="example-text-input">Username</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="example-text-input">
+                        <input type="text" class="form-control" id="username" name="username" value="{{$akun->username}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 control-label" for="example-text-input">Nama Lengkap</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="example-text-input">
+                        <input type="text" class="form-control" id="nama" name="nama" value="{{$akun->nama}}">
                     </div>
                 </div>            
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                <button type="submit" class="btn btn-primary waves-effect waves-light">Save changes</button>
             </div>
+        </form>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<script>
+    function editAkun(id_user) {            
+            var username = document.getElementById('username');            
+            var nama = document.getElementById('nama');
+            var id = document.getElementById('edit');
+
+            var user = id.getAttribute('data-username');
+            console.log(user);
+           
+            username.href=`${urlEditBerkas}/${id_user}/1`;
+            nama.href = `${urlEditBerkas}/${id_user}/2`;
+            console.log(id_user);
+        }
+</script>
     
 @endsection
