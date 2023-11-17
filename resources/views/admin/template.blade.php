@@ -21,7 +21,7 @@
 
     <script>
         var urlEditBerkas = `{{url('admin/confirm/')}}`
-        console.log(urlEditBerkas);
+        var urlEditAkun = `{{url('admin/modal_edit/akun/')}}`
     </script>
 </head>
 
