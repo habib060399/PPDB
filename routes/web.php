@@ -41,3 +41,5 @@ Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun
 Route::get('admin/confirm/{id}/{status}', [AdminController::class, 'confirm'])->name('confirm');
 Route::get('admin/hapus/{id}', [AdminController::class, 'hapus'])->name('hapus');
 Route::get('admin/hapus/akun/{id}', [AdminController::class, 'hapusAkun'])->name('hapusAkun');
+Route::get('admin/modal_edit/akun/{id}', [AdminController::class, ''])->name('modalEditAkun');
+Route::post('admin/edit/akun', [AdminController::class, ''])->name('editAkun');
