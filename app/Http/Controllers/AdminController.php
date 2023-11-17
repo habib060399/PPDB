@@ -80,11 +80,15 @@ class AdminController extends Controller
         return redirect('/admin/akun')->with('status', 'Data Berhasil Dihapus');
     }
 
+    public function modalEditAkun($id)
+    {
+        User::where('id', $id)->update([
+            'username', 
+        ]);
+    }
+
     public function editAKun($id)
     {
-        $username = 
-        User::where('id', $id)->update([
-            'username',
-        ]);
+        
     }
 }
