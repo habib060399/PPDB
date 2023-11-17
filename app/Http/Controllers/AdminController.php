@@ -82,13 +82,22 @@ class AdminController extends Controller
 
     public function modalEditAkun($id)
     {
-        User::where('id', $id)->update([
-            'username', 
-        ]);
+        $user = User::where('id', $id)->first();
+        return $user;
     }
 
-    public function editAKun($id)
+    public function editAKun(Request $request)
     {
+        $id = $request->input('id');
+        $username = $request->input('username');
+        $nama = $request->input('nama');
+
+        User::where('id', $id)->update([
+            'username' => $username,
+            'nama' => $nama
+        ]);
+
+        return redirect('admin/akun')->with('status', 'Data berhasil diubah');
         
     }
 }
