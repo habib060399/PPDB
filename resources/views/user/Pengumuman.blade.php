@@ -31,16 +31,15 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="example-text-input">Nama
                                                     Lengkap</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="example-text-input"
-                                                        value="{{ $user->nama_lengkap }}" readonly>
+                                                <div class="col-sm-10">                                                                                                                                                                                                           
+                                                    <input type="text" class="form-control" id="example-text-input" value="{{$nama}}" readonly>                                                    
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-2 control-label" for="example-text-input">Nisn</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="example-text-input"
-                                                        value="{{ $user->nisn }}" readonly>
+                                                        value="{{$nisn}}" readonly>
                                                 </div>
                                             </div>
                                             <br>
