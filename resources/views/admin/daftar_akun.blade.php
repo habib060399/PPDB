@@ -33,14 +33,16 @@
 
 
                             <tbody>
+                                @foreach ($akun as $akun)                                                                    
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>                                
+                                <td>{{$akun->username}}</td>
+                                <td>{{$akun->nama}}</td>                                
                                 <td>
-                                    <a href="" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</a>                                    
-                                    <a href="" class="btn btn-secondary btn-xs waves-effect">Hapus</a>
+                                    <a href="{{route('editAkun', ['id' => $akun->id])}}" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</a>                                    
+                                    <a href="{{route('hapusAkun', ['id' => $akun->id])}}" class="btn btn-secondary btn-xs waves-effect">Hapus</a>
                                 </td>
                             </tr>
+                            @endforeach
                             
                             </tbody>
                         </table>
