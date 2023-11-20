@@ -56,6 +56,8 @@ class UserController extends Controller
     {   $status ="Anda Belum Mendaftar";
         $nama="";
         $nisn="";
+        $status2="";
+        $link="";
 
         $getDataSiswa = Siswa::where('id_user', $this->id_user)->first();
         if($getDataSiswa){
@@ -63,6 +65,7 @@ class UserController extends Controller
                 $nama = $getDataSiswa->nama_lengkap;
                 $nisn = $getDataSiswa->nisn;
                 $status = "Dengan ini dinyatakan <h1>$getDataSiswa->status</h1>";
+                $status2 = "Silahkan daftar ulang";                
             }elseif($getDataSiswa->status == "TIDAK LULUS") {
                 $nama = $getDataSiswa->nama_lengkap;
                 $nisn = $getDataSiswa->nisn;
@@ -77,7 +80,9 @@ class UserController extends Controller
         $data = [
             'nama' => $nama,
             'nisn' => $nisn,
-            'status' => $status
+            'status' => $status,
+            'status2' => $status2,
+            'link' => route('daftarUlang')
         ];
         return view("user.pengumuman", $data);
     }
@@ -130,8 +135,17 @@ class UserController extends Controller
         ]);
                 
         
-        return redirect('user/pengumuman')->with('status', 'Data berhasil didafarkan');        
-                            
+        return redirect('user/pengumuman')->with('status', 'Data berhasil didafarkan');                                    
+    }
+
+    public function ViewDaftarUlang()
+    {
+        return view('user.form_daftar_ulang');
+    }
+
+    public function inputDaftarUlang()
+    {
+
     }
 
 }
