@@ -43,7 +43,7 @@
                                                 </div>
                                             </div>
                                             <br>
-                                            <h4 class="modal-title m-0">{{$status}}</h1>
+                                            <h4 class="modal-title m-0">{{$status}}<a href="{{$link}}">{{$status2}}</a>
                                             </h4>
                                         </div>
 
