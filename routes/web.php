@@ -40,7 +40,7 @@ Route::get('user/daftar-ulang', [UserController::class, 'ViewDaftarULang'])->nam
 Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('admin');
 Route::get('admin/berkas/{id}', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');
 Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun');
-Route::get('admin/confirm/{id}/{status}', [AdminController::class, 'confirm'])->name('confirm');
+Route::post('admin/confirm', [AdminController::class, 'confirm'])->name('confirm');
 Route::get('admin/hapus/{id}', [AdminController::class, 'hapus'])->name('hapus');
 Route::get('admin/hapus/akun/{id}', [AdminController::class, 'hapusAkun'])->name('hapusAkun');
 Route::get('admin/modal_edit/akun/{id}', [AdminController::class, 'modalEditAkun'])->name('modalEditAkun');
