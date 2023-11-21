@@ -44,25 +44,35 @@ class AdminController extends Controller
         return view('admin.daftar_akun', $data);
     }
 
-    public function confirm($id, $status)
+    public function confirm(Request $request)
     {
-        if($status == '1'){
+        $id = $request->input('id_user');
+        $nisn = $request->input('nisn');
+        $status = $request->input('status');
+        
+       $data = Siswa::where('id_user', $id)->update([
+            'nisn' => $nisn,
+            'status' => $status
+        ]);
 
-            $status = 'LULUS';
-            Siswa::where('id_user', $id)->update([
-                'status' => $status
-            ]);
-            return redirect()->to('admin');
+        return redirect('/admin')->with('status', 'Data Berhasil Disimpan');
+        // if($status == '1'){
 
-        } elseif($status == '2'){
+        //     $status = 'LULUS';
+        //     Siswa::where('id_user', $id)->update([
+        //         'status' => $status
+        //     ]);
+        //     return redirect()->to('admin');
 
-            $status = 'TIDAK LULUS';
-            Siswa::where('id_user', $id)->update([
-                'status' => $status
-            ]);
-            return redirect()->to('admin');
+        // } elseif($status == '2'){
+
+        //     $status = 'TIDAK LULUS';
+        //     Siswa::where('id_user', $id)->update([
+        //         'status' => $status
+        //     ]);
+        //     return redirect()->to('admin');
             
-        }
+        // }
         
     }
 
