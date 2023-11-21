@@ -7,18 +7,32 @@
             <div class="card-body">
                 <h4 class="m-t-0 m-b-30">Form Pendaftaran</h4>
 
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="{{route('confirm')}}" method="POST">                    
+                    @csrf
+                                                                    
+                            <input type="text" class="form-control" id="example-text-input" name="id_user" value="{{$berkas->id_user}}" hidden>
+                                    
                     <div class="form-group row">
-                        <label class="col-sm-2 control-label" for="example-text-input">Nama Lengkap</label>
+                        <label class="col-sm-2 control-label" for="example-text-input">Status</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="example-text-input" value="{{$berkas->nama_lengkap}}" readonly>
+                            <select class="form-control" name="status" id="status">
+                                <option value="Lulus">Lulus</option>
+                                <option value="Tidak Lulus">Tidak Lulus</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-2 control-label" for="example-text-input">Nisn</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="example-text-input" value="{{$berkas->nisn}}" readonly>
+                            <input type="text" class="form-control" id="example-text-input" name="nisn" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-sm-2 control-label" for="example-text-input">Nama Lengkap</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="example-text-input" value="{{$berkas->nama_lengkap}}" readonly>
                         </div>
                     </div>
 
@@ -69,14 +83,7 @@
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="example-text-input" value="{{$berkas->negara}}" readonly>
                         </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 control-label" for="example-text-input">No Registrasi akta kelahiran</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="example-text-input" readonly>
-                        </div>
-                    </div>
+                    </div>                     
 
                     <div class="form-group row">
                         <label class="col-sm-2 control-label" for="example-text-input">Nama orangtua Ayah/Ibu</label>
@@ -107,11 +114,10 @@
                     </div>   
                 </br>
                     <div class="form-group row">
-                        <div class="offset-sm-10 col-sm-5">
-                            <a href="{{route('confirm', ['id' => $berkas->id_user, 'status' => '1'])}}" class="btn btn-success waves-effect waves-light">Lulus</a>
-                            <a href="{{route('confirm', ['id' => $berkas->id_user, 'status' => '2' ])}}" class="btn btn-danger waves-effect waves-light">Tidak Lulus</a>
+                        <div class="offset-sm-10 col-sm-5">                            
+                            <button class="btn btn-success waves-effect waves-light" type="submit">Save</button>
                         </div>
-                    </div> 
+                    </div>                     
                 </form>
             </div> <!-- card-body -->
         </div> <!-- card -->
