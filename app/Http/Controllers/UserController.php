@@ -140,7 +140,11 @@ class UserController extends Controller
 
     public function ViewDaftarUlang()
     {
-        return view('user.form_daftar_ulang');
+        $getSiswa = Siswa::where("id_user", session()->get("id_user"))->first();
+        $data = [
+            "nisn" => $getSiswa->nisn
+        ];
+        return view('user.form_daftar_ulang', $data);
     }
 
     public function inputDaftarUlang()
