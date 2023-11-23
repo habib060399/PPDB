@@ -52,7 +52,7 @@
                                 <td>{{$berkas->no_hp_ortu}}</td>
                                 <td>
                                     <a href="{{route('berkas',['id' => $berkas->id_user])}}" class="btn btn-secondary btn-xs waves-effect">Lihat</a>
-                                    <button onclick="edit({{$berkas->id_user}})" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</button>
+                                    <button onclick="edit({{$berkas->id_user}},{{$berkas->nisn}})" class="btn btn-secondary btn-xs waves-effect" data-toggle="modal" data-target="#custom-width-modal">Edit</button>
                                     <a href="{{route('hapus', ['id' => $berkas->id_user])}}" class="btn btn-secondary btn-xs waves-effect">Hapus</a>
                                 </td>
                             </tr>
@@ -89,8 +89,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <a id="lulus" href="" class="btn btn-success waves-effect">Lulus</a>
-                <a id="tidak_lulus" href="" class="btn btn-danger waves-effect">Tidak Lulus</a>                
+                <input type="text" class="form-control" name="nisn" id="nisn">
+                <a id="lulus"  class="btn btn-success waves-effect">Lulus</a>
+                <a id="tidak_lulus" class="btn btn-danger waves-effect">Tidak Lulus</a>                
             </div>
             <div class="modal-footer">                
         </div><!-- /.modal-content -->
@@ -99,18 +100,46 @@
     <script>
         var id;
 
-        function edit(id_user) {
-            var uri1 = "";
-            var uri2 = "";
-            var url = uri1+id_user+uri2;
-            var a = document.getElementById('lulus');            
-            var a2 = document.getElementById('tidak_lulus');            
-            // a.href = "{{route('confirm', ['id' =>2, 'status' => '1'])}}";
-            a.href=`${urlEditBerkas}/${id_user}/1`;
-            a2.href = `${urlEditBerkas}/${id_user}/2`;
-            console.log(id_user);
+        function edit(id_user, berkas) {      
+            var nisn="";           
+            var idNisn = document.getElementById('nisn');
+            
+            if(berkas == undefined){
+                nisn = idNisn.value=""   ;
+            }else {                
+                nisn = idNisn.value=`${berkas}`                   
+            }
+                        
+            document.getElementById("lulus").onclick = () => {
+                lulus(id_user)
+            };   
+
+            document.getElementById("tidak_lulus").onclick = () => {
+                tidakLulus(id_user)
+            };   
+            
+        }   
+
+        function lulus(id_user) {
+        var a = document.getElementById('lulus');                    
+        var idNisn = document.getElementById('nisn');
+        var nisn = idNisn.value
+        console.log(nisn)
+        if(nisn == null || nisn == " "){
+            idNisn.value = "undefined"
         }
-        
+        // a.href=`${urlEditBerkas}/${id_user}/1/${nisn}`;        
+    }
+
+        function tidakLulus(id_user) {
+        var a = document.getElementById('tidak_lulus');                    
+        var idNisn = document.getElementById('nisn');
+        var nisn = idNisn.value
+        if(nisn == null && nisn == " "){
+            nisn = "undefined";
+        }
+        a.href=`${urlEditBerkas}/${id_user}/2/${nisn}`;        
+    }
 
     </script>
 @endsection

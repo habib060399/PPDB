@@ -41,6 +41,7 @@ Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('admin');
 Route::get('admin/berkas/{id}', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');
 Route::get('admin/akun', [AdminController::class, 'ViewDaftarAkun'])->name('akun');
 Route::post('admin/confirm', [AdminController::class, 'confirm'])->name('confirm');
+Route::get('admin/edit/status/{id}/{status}/{nisn}', [AdminController::class, 'editStatus'])->name('editStatus');
 Route::get('admin/hapus/{id}', [AdminController::class, 'hapus'])->name('hapus');
 Route::get('admin/hapus/akun/{id}', [AdminController::class, 'hapusAkun'])->name('hapusAkun');
 Route::get('admin/modal_edit/akun/{id}', [AdminController::class, 'modalEditAkun'])->name('modalEditAkun');

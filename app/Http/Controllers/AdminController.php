@@ -107,7 +107,29 @@ class AdminController extends Controller
             'nama' => $nama
         ]);
 
-        return redirect('admin/akun')->with('status', 'Data berhasil diubah');
-        
+        return redirect('admin/akun')->with('status', 'Data berhasil diubah');        
+    }
+
+    public function editStatus($id, $status, $nisn)
+    {
+        if($status == '1'){
+
+            $status = 'LULUS';
+            Siswa::where('id_user', $id)->update([
+                'status' => $status,
+                'nisn' => $nisn
+            ]);
+            return redirect()->to('admin');
+
+        } elseif($status == '2'){
+
+            $status = 'TIDAK LULUS';
+            $data = Siswa::where('id_user', $id)->update([
+                'status' => $status,
+                'nisn' => $nisn
+            ]);            
+            return redirect()->to('admin');
+            
+        }
     }
 }

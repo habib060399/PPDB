@@ -20,7 +20,7 @@
     <link href="{{url('assets/css/style.css')}}" rel="stylesheet" type="text/css">
 
     <script>
-        var urlEditBerkas = `{{url('admin/confirm/')}}`
+        var urlEditBerkas = `{{url('admin/edit/status/')}}`
         var urlEditAkun = `{{url('admin/modal_edit/akun/')}}`
     </script>
 </head>

@@ -25,7 +25,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 control-label" for="example-text-input">Nisn</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="example-text-input" name="nisn" required>
+                            <input type="text" class="form-control" id="example-text-input" name="nisn" required value="{{($berkas->nisn > 0) ? $berkas->nisn :"" }}">
                         </div>
                     </div>
                     
