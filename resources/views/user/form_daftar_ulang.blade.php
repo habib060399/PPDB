@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h4 class="m-t-0 m-b-30">Form Daftar Ulang</h4>
 
-                    <form class="form-horizontal" action="{{ route('inputDataSiswa') }}" method="POST">
+                    <form class="form-horizontal" action="{{ route('inputDaftarUlang') }}" method="POST">
                         @csrf
                         <div class="form-group row">
                             <label class="col-sm-2 control-label" for="example-text-input">Nama Lengkap</label>

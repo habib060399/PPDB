@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use App\Models\BerkasUlang;
 
 class UserController extends Controller
 {
@@ -60,16 +61,23 @@ class UserController extends Controller
         $link="";
 
         $getDataSiswa = Siswa::where('id_user', $this->id_user)->first();
-        if($getDataSiswa){
-            if($getDataSiswa->status == "LULUS") {
+        $berkasUlang = BerkasUlang::where('id_user', $this->id_user)->first();
+        if($getDataSiswa || $berkasUlang){
+            if($getDataSiswa->status == "LULUS") {                
+                if($berkasUlang){
                 $nama = $getDataSiswa->nama_lengkap;
                 $nisn = $getDataSiswa->nisn;
-                $status = "Dengan ini dinyatakan <h1>$getDataSiswa->status</h1>";
-                $status2 = "Silahkan daftar ulang";                
-            }elseif($getDataSiswa->status == "TIDAK LULUS") {
+                $status = "Daftar Ulang Berhasil";
+                }else{
+                    $nama = $getDataSiswa->nama_lengkap;
+                    $nisn = $getDataSiswa->nisn;
+                    $status = "Dengan ini dinyatakan $getDataSiswa->status";
+                    $status2 = "Silahkan daftar ulang";
+                }                
+            }elseif($getDataSiswa->status == "Tidak Lulus") {
                 $nama = $getDataSiswa->nama_lengkap;
                 $nisn = $getDataSiswa->nisn;
-                $status = "Dengan ini dinyatakan <h1>$getDataSiswa->status</h1>";
+                $status = "Dengan ini dinyatakan $getDataSiswa->status";
             }else{
                 $nama = $getDataSiswa->nama_lengkap;
                 $nisn = $getDataSiswa->nisn;
@@ -147,9 +155,17 @@ class UserController extends Controller
         return view('user.form_daftar_ulang', $data);
     }
 
-    public function inputDaftarUlang()
+    public function inputDaftarUlang(Request $request)
     {
-
+        $data = BerkasUlang::create([
+            'id_user' => $this->id_user,
+            'nama_lengkap' => $request->input('nama_lengkap'),
+            'nisn' => $request->input('nisn'),
+            'ttl' => $request->input('ttl'),
+            'alamat' => $request->input('alamat')
+        ]);
+          
+        return redirect('user/pengumuman')->with('status', 'berhasil daftar ulang');
     }
 
 }

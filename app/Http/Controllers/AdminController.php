@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\User;
+use App\Models\BerkasUlang;
 
 class AdminController extends Controller
 {
@@ -79,6 +80,7 @@ class AdminController extends Controller
     public function hapus($id)
     {
         Siswa::where('id_user', $id)->delete();
+        BerkasUlang::where('id_user', $id)->delete();
 
         return redirect('/admin')->with('status', 'Data Berhasil Dihapus');
     }

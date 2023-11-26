@@ -36,6 +36,7 @@ Route::get('user/berkas', [UserController::class, 'ViewBerkas'])->name('berkasUs
 Route::get('user/pengumuman', [UserController::class, 'ViewPengumuman'])->name('pengumuman');
 
 Route::get('user/daftar-ulang', [UserController::class, 'ViewDaftarULang'])->name('daftarUlang');
+Route::post('user/daftar-ulang/input', [UserController::class, 'inputDaftarUlang'])->name('inputDaftarUlang');
 
 Route::get('admin', [AdminController::class, 'ViewBerkas'])->name('admin');
 Route::get('admin/berkas/{id}', [AdminController::class, 'ViewBerkasPendaftaran'])->name('berkas');

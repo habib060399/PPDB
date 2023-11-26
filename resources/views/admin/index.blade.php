@@ -95,7 +95,7 @@
                 </div>
                 <div class="modal-body">
                     <label for="">Nisn</label>
-                    <input type="number" class="form-control" name="nisn" id="nisn">
+                    <input type="number" class="form-control" name="nisn" id="nisn" required>
                     <a id="lulus" class="btn btn-success waves-effect">Lulus</a>
                     <a id="tidak_lulus" class="btn btn-danger waves-effect">Tidak Lulus</a>
                 </div>
