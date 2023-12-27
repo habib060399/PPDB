@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\BerkasUlang;
+use App\Models\Berkas;
+use App\Models\BerkasDaftarUlang;
 
 class UserController extends Controller
 {
     public $id_user;
+    public $status_regis;
     public function  __construct()
     {        
-        $this->id_user = session('id_user');        
+        $this->id_user = session('id_user');
     }
     
     public function index()
@@ -21,7 +24,7 @@ class UserController extends Controller
     
     public function ViewPendaftaran2()
     {        
-        $siswa = Siswa::where('id_user', $this->id_user)->first();
+        $siswa = Berkas::where('id_user', $this->id_user)->first();
         if($siswa->status_regis == '1'){
             return view("user.cek");
         } else {
@@ -32,7 +35,7 @@ class UserController extends Controller
 
     public function ViewPendaftaran()
     {
-        $siswa = Siswa::where('id_user', $this->id_user)->first();
+        $siswa = Berkas::where('id_user', $this->id_user)->first();
         if($siswa){
 
             if($siswa->status_regis == '1'){
@@ -60,8 +63,8 @@ class UserController extends Controller
         $status2="";
         $link="";
 
-        $getDataSiswa = Siswa::where('id_user', $this->id_user)->first();
-        $berkasUlang = BerkasUlang::where('id_user', $this->id_user)->first();
+        $getDataSiswa = Berkas::where('id_user', $this->id_user)->first();
+        $berkasUlang = BerkasDaftarUlang::where('id_user', $this->id_user)->first();
         if($getDataSiswa || $berkasUlang){
             if($getDataSiswa->status == "LULUS") {                
                 if($berkasUlang){
@@ -106,7 +109,7 @@ class UserController extends Controller
 
         $id_user = $request->session()->get('id_user');
 
-        $formDataSiswa = Siswa::create([
+        $formDataSiswa = Berkas::create([
             'id_user' => $id_user,
             'nama_lengkap' => $request->input('nama_lengkap'),
             'nisn' => $request->input('nisn'),
@@ -130,7 +133,7 @@ class UserController extends Controller
     {
         $id_user = $request->session()->get('id_user');
 
-        Siswa::where('id_user', $id_user)
+        Berkas::where('id_user', $id_user)
         ->update([
             'asal_sekolah' => $request->input('asal_sekolah'),
             'negara' => $request->input('warganegara'),
@@ -148,17 +151,26 @@ class UserController extends Controller
 
     public function ViewDaftarUlang()
     {
-        $getSiswa = Siswa::where("id_user", session()->get("id_user"))->first();
-        $data = [
-            "nisn" => $getSiswa->nisn
-        ];
-        return view('user.form_daftar_ulang', $data);
+        $getSiswa = Berkas::where("id_user", session()->get("id_user"))->first();
+        if($getSiswa) {
+            $data = [
+                "nisn" => $getSiswa->nisn,
+                "id_berkas" => $getSiswa->id_berkas,
+                "nama" => $getSiswa->nama_lengkap,
+                "ttl" => $getSiswa->ttl,
+                "alamat" => $getSiswa->alamat
+            ];
+            return view('user.form_daftar_ulang', $data);
+        } else {
+            return redirect('/user');
+        }
     }
 
     public function inputDaftarUlang(Request $request)
     {
-        $data = BerkasUlang::create([
+        $data = BerkasDaftarUlang::create([
             'id_user' => $this->id_user,
+            'id_berkas' => $request->input('id_berkas'),
             'nama_lengkap' => $request->input('nama_lengkap'),
             'nisn' => $request->input('nisn'),
             'ttl' => $request->input('ttl'),

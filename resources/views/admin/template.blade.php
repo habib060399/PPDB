@@ -15,9 +15,16 @@
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="{{url('assets/plugins/morris/morris.css')}}">
 
+    <link href="{{url('assets/plugins/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets/plugins/datatables/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets/plugins/datatables/fixedHeader.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets/plugins/datatables/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets/plugins/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{url('assets/plugins/datatables/scroller.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+
     <link href="{{url('assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{url('assets/css/icons.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{url('assets/css/style.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url('assets/css/style.css')}}" rel="stylesheet" type="text/css">    
 
     <script>
         var urlEditBerkas = `{{url('admin/edit/status/')}}`
@@ -48,6 +55,19 @@
 
                             <li class="has-submenu">
                                 <a href="{{route('akun')}}"><i class="ti-briefcase"></i> Daftar Akun</a>                                
+                            </li>
+                            <li class="has-submenu">
+                                <a href="{{route('laporan')}}"><i class="ti-briefcase"></i> Laporan PPDB <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <ul>
+                                            <li><a href="ui-buttons.html">Cetak Laporan PPDB</a></li>
+                                            <li><a href="ui-cards.html">Cetak Laporan Daftar Ulang</a></li>                                            
+                                            <li><a href="ui-modals.html">Cetak Laporan Lulus PPDB</a></li>
+                                            {{-- <li><a href="ui-components.html">Components</a></li> --}}
+                                        </ul>
+                                    </li>                                    
+                                </ul>
                             </li>
 
                     </div>
@@ -83,7 +103,9 @@
 
 
         <!-- jQuery  -->
-        <script src="{{url('assets/js/jquery.min.js')}}"></script>
+        {{-- <script src="{{url('assets/js/jquery.min.js')}}"></script> --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>    
          <script src="{{url('assets/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{url('assets/js/modernizr.min.js')}}"></script>
         <script src="{{url('assets/js/detect.js')}}"></script>
@@ -99,6 +121,10 @@
         <script src="{{url('assets/plugins/morris/morris.min.js')}}"></script>
         <script src="{{url('assets/plugins/raphael/raphael.min.js')}}"></script>
 
+        <!-- Required datatable js-->
+        <script src="{{url('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{url('assets/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
         <!-- KNOB JS -->
         <script src="{{url('assets/plugins/jquery-knob/excanvas.js')}}"></script>
         <script src="{{url('assets/plugins/jquery-knob/jquery.knob.js')}}"></script>
@@ -110,6 +136,13 @@
         <script src="{{url('assets/plugins/flot-chart/jquery.flot.selection.js')}}"></script>
         <script src="{{url('assets/plugins/flot-chart/jquery.flot.stack.js')}}"></script>
         <script src="{{url('assets/plugins/flot-chart/jquery.flot.crosshair.js')}}"></script>
+
+        <!-- Responsive examples -->
+        <script src="{{url('assets/plugins/datatables/dataTables.responsive.min.js')}}"></script>
+        <script src="{{url('assets/plugins/datatables/responsive.bootstrap4.min.js')}}"></script>
+
+        <!-- Datatable init js -->
+        <script src="{{url('assets/pages/datatables.init.js')}}"></script>
 
         <script src="{{url('assets/pages/dashboard.js')}}"></script>
 

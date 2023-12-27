@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Siswa;
 use App\Models\User;
-use App\Models\BerkasUlang;
+use App\Models\Berkas;
+use App\Models\BerkasDaftarUlang;
 
 class AdminController extends Controller
 {
@@ -17,7 +17,7 @@ class AdminController extends Controller
 
     public function ViewBerkas()
     {
-        $daftarBerkas = Siswa::get();
+        $daftarBerkas = Berkas::get();
         
         $data = [
             'daftarBerkas' => $daftarBerkas
@@ -27,7 +27,7 @@ class AdminController extends Controller
 
     public function ViewBerkasPendaftaran($id_user)
     {
-        $getDataSiswa = Siswa::where('id_user', $id_user)->first();
+        $getDataSiswa = Berkas::where('id_user', $id_user)->first();
 
         $data = [
             'berkas' => $getDataSiswa
@@ -51,7 +51,7 @@ class AdminController extends Controller
         $nisn = $request->input('nisn');
         $status = $request->input('status');
         
-       $data = Siswa::where('id_user', $id)->update([
+       $data = Berkas::where('id_user', $id)->update([
             'nisn' => $nisn,
             'status' => $status
         ]);
@@ -79,7 +79,7 @@ class AdminController extends Controller
 
     public function hapus($id)
     {
-        Siswa::where('id_user', $id)->delete();
+        Berkas::where('id_user', $id)->delete();
         BerkasUlang::where('id_user', $id)->delete();
 
         return redirect('/admin')->with('status', 'Data Berhasil Dihapus');
@@ -117,7 +117,7 @@ class AdminController extends Controller
         if($status == '1'){
 
             $status = 'LULUS';
-            Siswa::where('id_user', $id)->update([
+            Berkas::where('id_user', $id)->update([
                 'status' => $status,
                 'nisn' => $nisn
             ]);
@@ -126,7 +126,7 @@ class AdminController extends Controller
         } elseif($status == '2'){
 
             $status = 'TIDAK LULUS';
-            $data = Siswa::where('id_user', $id)->update([
+            $data = Berkas::where('id_user', $id)->update([
                 'status' => $status,
                 'nisn' => $nisn
             ]);            

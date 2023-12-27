@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,5 @@ Route::get('admin/hapus/{id}', [AdminController::class, 'hapus'])->name('hapus')
 Route::get('admin/hapus/akun/{id}', [AdminController::class, 'hapusAkun'])->name('hapusAkun');
 Route::get('admin/modal_edit/akun/{id}', [AdminController::class, 'modalEditAkun'])->name('modalEditAkun');
 Route::post('admin/edit/akun', [AdminController::class, 'editAkun'])->name('editAkun');
+
+Route::get('admin/laporan', [LaporanController::class, 'viewLaporan'])->name('laporan');
