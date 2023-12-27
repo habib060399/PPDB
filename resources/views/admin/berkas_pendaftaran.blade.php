@@ -17,8 +17,8 @@
                             <label class="col-sm-2 control-label" for="example-text-input">Status</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="status" id="status">
-                                    <option value="Lulus">Lulus</option>
-                                    <option value="Tidak Lulus">Tidak Lulus</option>
+                                    <option value="LULUS">Lulus</option>
+                                    <option value="TIDAK LULUS">Tidak Lulus</option>
                                 </select>
                             </div>
                         </div>

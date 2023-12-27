@@ -50,3 +50,4 @@ Route::get('admin/modal_edit/akun/{id}', [AdminController::class, 'modalEditAkun
 Route::post('admin/edit/akun', [AdminController::class, 'editAkun'])->name('editAkun');
 
 Route::get('admin/laporan', [LaporanController::class, 'viewLaporan'])->name('laporan');
+Route::get('admin/laporan/lulus', [LaporanController::class, 'cetakLaporanLulus'])->name('cetak_laporan_lulus');
