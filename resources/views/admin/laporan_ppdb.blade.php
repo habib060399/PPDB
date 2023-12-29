@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-heading p-4">
                 <div>
-                    <input class="knob" data-width="80" data-height="80" data-linecap=round data-fgColor="#6cbafa" value="78" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                    <input class="knob" data-width="80" data-height="80" data-linecap=round data-fgColor="#6cbafa" value="{{$total_pendaftar}}" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
                     <div class="float-right">
                         <h2 class="text-primary mb-0">{{$total_pendaftar}}</h2>
                         <p class="text-muted mb-0 mt-2">Total Pendaftar</p>
@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-heading p-4">
                 <div>
-                    <input class="knob" data-width="80" data-height="80" data-linecap=round data-fgColor="#61d7c7" value="62" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                    <input class="knob" data-width="80" data-height="80" data-linecap=round data-fgColor="#61d7c7" value="{{$total_daftar_ulang}}" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
                     <div class="float-right">
                         <h2 class="text-info mb-0">{{$total_daftar_ulang}}</h2>
                         <p class="text-muted mb-0 mt-2">Total Siswa Daftar Ulang</p>
@@ -34,7 +34,7 @@
         <div class="card">
             <div class="card-heading p-4">
                 <div>
-                    <input class="knob" data-width="80" data-height="80" data-linecap=round data-fgColor="#6cbafa" value="42" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                    <input class="knob" data-width="80" data-height="80" data-linecap=round data-fgColor="#6cbafa" value="{{$total_lulus}}" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
                     <div class="float-right">
                         <h2 class="text-primary mb-0">{{$total_lulus}}</h2>
                         <p class="text-muted mb-0 mt-2">Total Siswa Lulus</p>
@@ -48,7 +48,7 @@
         <div class="card">
             <div class="card-heading p-4">
                 <div>
-                    <input class="knob" data-width="80" data-height="80" data-linecap=round data-fgColor="#61d7c7" value="25" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                    <input class="knob" data-width="80" data-height="80" data-linecap=round data-fgColor="#61d7c7" value="{{$total_siswa}}" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
                     <div class="float-right">
                         <h2 class="text-info mb-0">{{$total_siswa}}</h2>
                         <p class="text-muted mb-0 mt-2">Total Siswa</p>
@@ -66,9 +66,18 @@
             <th>No</th>
             <th>Nama Lengkap</th>
             <th>Nisn</th>
-            <th>Asal Sekolah</th>
+            <th>Tempat Tanggal Lahir</th>
             <th>Alamat</th>
-            <th>Status Daftar</th>
+            <th>Jenis Kelamin</th>
+            <th>Anak ke-</th>
+            <th>Agama</th>
+            <th>Asal Sekolah</th>
+            <th>Negara</th>
+            <th>No Regis</th>
+            <th>Nama Orangtua</th>
+            <th>No KK</th>
+            <th>No Hp Orangtua</th>
+            <th>Alamat Orangtua</th>
             
         </tr>
         </thead>
@@ -80,9 +89,18 @@
                 <td>{{$loop->iteration}}</td>
                 <td>{{$b->nama_lengkap}}</td>
                 <td>{{$b->nisn}}</td>
-                <td>{{$b->asal_sekolah}}</td>
+                <td>{{$b->ttl}}</td>
                 <td>{{$b->alamat}}</td>
-                <td>{{$b->status}}</td>                
+                <td>{{$b->jenkel}}</td>
+                <td>{{$b->anakke}}</td>
+                <td>{{$b->agama}}</td>
+                <td>{{$b->asal_sekolah}}</td>
+                <td>{{$b->negara}}</td>
+                <td>{{$b->no_reg}}</td>
+                <td>{{$b->nama_ortu}}</td>
+                <td>{{$b->no_kk}}</td>
+                <td>{{$b->no_hp_ortu}}</td>
+                <td>{{$b->alamat_ortu}}</td>
             </tr>
             @endforeach        
         </tbody>

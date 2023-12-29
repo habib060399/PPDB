@@ -51,3 +51,6 @@ Route::post('admin/edit/akun', [AdminController::class, 'editAkun'])->name('edit
 
 Route::get('admin/laporan', [LaporanController::class, 'viewLaporan'])->name('laporan');
 Route::get('admin/laporan/lulus', [LaporanController::class, 'cetakLaporanLulus'])->name('cetak_laporan_lulus');
+Route::get('admin/laporan/ppdb', [LaporanController::class, 'cetakLaporanPPDB'])->name('cetak_laporan_ppdb');
+Route::get('admin/laporan/daftar-ulang', [LaporanController::class, 'cetakLaporanDaftarUlang'])->name('cetak_laporan_daftur');
+Route::get('admin/laporan/rekap', [LaporanController::class, 'cetakRekapPPDB'])->name('rekapitulasi');

@@ -62,10 +62,10 @@
                                     <li>
                                         <ul>
                                             <li><a href="{{route('laporan')}}">Laporan PPDB</a></li>
-                                            <li><a href="ui-buttons.html">Cetak Laporan PPDB</a></li>
-                                            <li><a href="ui-cards.html">Cetak Laporan Daftar Ulang</a></li>                                            
+                                            <li><a href="{{route('cetak_laporan_ppdb')}}">Cetak Laporan PPDB</a></li>
+                                            <li><a href="{{route('cetak_laporan_daftur')}}">Cetak Laporan Daftar Ulang</a></li>                                            
                                             <li><a href="{{route('cetak_laporan_lulus')}}">Cetak Laporan Lulus PPDB</a></li>
-                                            {{-- <li><a href="ui-components.html">Components</a></li> --}}
+                                            <li><a href="{{route('rekapitulasi')}}">Cetak Rekapitulasi PPDB</a></li>
                                         </ul>
                                     </li>                                    
                                 </ul>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
-use App\Models\BerkasUlang;
 use App\Models\Berkas;
 use App\Models\BerkasDaftarUlang;
 
@@ -64,7 +63,7 @@ class UserController extends Controller
         $link="";
 
         $getDataSiswa = Berkas::where('id_user', $this->id_user)->first();
-        $berkasUlang = BerkasDaftarUlang::where('id_user', $this->id_user)->first();
+        $berkasUlang = BerkasDaftarUlang::where('id_user_bdu', $this->id_user)->first();
         if($getDataSiswa || $berkasUlang){
             if($getDataSiswa->status == "LULUS") {                
                 if($berkasUlang){
@@ -155,7 +154,7 @@ class UserController extends Controller
         if($getSiswa) {
             $data = [
                 "nisn" => $getSiswa->nisn,
-                "id_berkas" => $getSiswa->id_berkas,
+                "id_berkas" => $getSiswa->id,
                 "nama" => $getSiswa->nama_lengkap,
                 "ttl" => $getSiswa->ttl,
                 "alamat" => $getSiswa->alamat

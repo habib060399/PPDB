@@ -80,7 +80,7 @@ class AdminController extends Controller
     public function hapus($id)
     {
         Berkas::where('id_user', $id)->delete();
-        BerkasUlang::where('id_user', $id)->delete();
+        BerkasDaftarUlang::where('id_user_bdu', $id)->delete();
 
         return redirect('/admin')->with('status', 'Data Berhasil Dihapus');
     }
